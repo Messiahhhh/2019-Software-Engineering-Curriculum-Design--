@@ -169,4 +169,3 @@ if __name__ == '__main__':
     # major_init.information_class_init()
     major_init.information_student_init()
     pass
-
