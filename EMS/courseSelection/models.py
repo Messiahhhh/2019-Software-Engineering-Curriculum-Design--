@@ -22,11 +22,3 @@ class TeachersCourse(models.Model):
 
 
 
-
-
-=======
-from backstage.models import Student, Teacher
-from scoreManagement.models import Course, MajorCourses
-
-
->>>>>>> b12887070dca45507f23fcc57d4d880354fe094e
