@@ -5,11 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<<<<<<< HEAD
-    <title>{% block title %}首页{% endblock %}</title>
-=======
     <title>{% block title %}欢迎登录教务管理系统{% endblock %}</title>
->>>>>>> b12887070dca45507f23fcc57d4d880354fe094e
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Google Font -->
     {#  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">#}
@@ -67,11 +63,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle pull-right image" data-toggle="dropdown">
               <img src="{% static 'dist/img/head.jpg' %}" style="width: 25px;height:25px;" class="user-image" alt="User Image">
-<<<<<<< HEAD
-              <span class="hidden-xs">您好！{{ user.name }}</span>
-=======
               <span class="hidden-xs">您好！{{ request.session.name }}</span>
->>>>>>> b12887070dca45507f23fcc57d4d880354fe094e
             </a>
           </li>
             {% else %}
@@ -99,7 +91,6 @@
         <div class="pull-left info">
           <p>{{ request.user.username }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-<<<<<<< HEAD
         </div>
               {% else %}
 
@@ -114,22 +105,6 @@
                 </button>
               </span>
         </div>
-=======
-        </div>
-              {% else %}
-
-          {% endif %}
-      </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
->>>>>>> b12887070dca45507f23fcc57d4d880354fe094e
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -187,14 +162,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 
-<<<<<<< HEAD
-      {% block content %}
-
-
-      {% endblock %}
-=======
       {% block content %}{% endblock %}
->>>>>>> b12887070dca45507f23fcc57d4d880354fe094e
 
   </div>
   <!-- /.content-wrapper -->
