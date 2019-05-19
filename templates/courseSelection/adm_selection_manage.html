@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}欢迎登录教务管理系统{% endblock %}
+
+{% block custom_nav %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">信息查询 <span
+                class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="{% url 'backstage:my_personal_details' %}">查看个人信息</a></li>
+            <li><a href="#">查看个人课表</a></li>
+            <li><a href="#">查看全校课表</a></li>
+            <li><a href="#">查询空闲教室</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'scoreManagement:std_view_major_plan' %}">查看专业培养计划</a></li>
+            <li><a href="{% url 'scoreManagement:std_view_major_course' %}">查看专业课程计划</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'scoreManagement:student_score' %}">查看考试成绩</a></li>
+            <li><a href="{% url 'scoreManagement:student_own_study' %}">查看个人学业情况</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="{% url 'courseSelection:select_course' %}" class="dropdown-toggle" data-toggle="dropdown">选课 <span
+                class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="{% url 'courseSelection:stu_tongshi' %}">通识课</a></li>
+            <li><a href="{% url 'courseSelection:stu_major' %}">专业选修</a></li>
+            <li><a href="{% url 'courseSelection:adm_selection_manage' %}">管理员界面</a></li>
+
+            <li><a href="#">查看全校课表</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">毕业设计 <span
+                class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="{% url 'graduationManagement:student_choose_project' %}">题目浏览</a></li>
+            <li><a href="{% url 'graduationManagement:student_submit_project' %}">题目提交</a></li>
+            <li><a href="{% url 'graduationManagement:student_view_score' %}">查看成绩</a></li>
+        </ul>
+    </li>
+
+    <li><a href="{% url 'scoreManagement:assess_teacher' %}">教学评价</a></li>
+{% endblock %}
+
+
+{% block left_side_block %}
+    <!-- 不同用户自定义的左侧的侧边栏 -->
+
+
+    <li class="treeview">
+        <a href="{% url 'courseSelection:select_course' %}" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-folder"></i> <span>管理员功能</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span></a>
+        <ul class="treeview-menu">
+            <li><a href="{% url 'courseSelection:adm_selection_manage' %}">主页</a></li>
+            <li><a href="{% url 'courseSelection:text' %}">测试</a></li>
+
+            <li><a href="{% url 'courseSelection:adm_school' %}">查询全校选课情况</a></li>
+            <li><a href="{% url 'courseSelection:adm_class' %}">查询课程信息</a></li>
+        </ul>
+
+    </li>
+
+
+
+{% endblock %}
+{% block content %}
+    <body>
+
+        <form method="post" action="{% url 'courseSelection:time_set' %}">
+            {% csrf_token %}
+            <h1>设置选课时间</h1>
+            <p1>开始时间</p1>
+            <input type="datetime-local" value="" name="begin_time"/>
+            <p1>结束时间</p1>
+            <input type="datetime-local" value=" " name="end_time"/>
+            <button type="submit" class="btn btn-primary " onclick="return confirm('Yes/No')">设置</button>
+        </form>
+
+
+
+
+    </body>
+{% endblock %}
+{% block script %}
+
+    <script>
+
+        function Time_set(obj){
+            {#alert(obj);#}
+                {#alert(obj.name);#}
+                $.ajax({
+                    url: '/courseSelection/time_set',
+                    type: 'POST',
+
+                });
+        }
+
+    </script>
+{% endblock %}
